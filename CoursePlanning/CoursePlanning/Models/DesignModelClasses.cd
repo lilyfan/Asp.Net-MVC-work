@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="CoursePlanning.Models.Employee">
+    <Position X="2.75" Y="1" Width="3.25" />
+    <AssociationLine Name="ReportsToEmployee" Type="CoursePlanning.Models.Employee">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.534" Y="0.1" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="EmployeesSupervised" Type="CoursePlanning.Models.Employee" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="2.75" Y="2.188" />
+        <Point X="2.5" Y="2.188" />
+        <Point X="2.5" Y="2.938" />
+        <Point X="2.75" Y="2.938" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.64" Y="-0.461" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="JobDuties" Type="CoursePlanning.Models.JobDuty" FixedToPoint="true">
+      <Path>
+        <Point X="4.375" Y="3.132" />
+        <Point X="4.375" Y="4.75" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.1" Y="0.268" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AIACAEAAAAAAAAAAAAEAAAAAABAAEAAAAQAAAAAAAAg=</HashCode>
+      <FileName>Models\DesignModelClasses.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ReportsToEmployee" />
+      <Property Name="HomeAddress" />
+      <Property Name="WorkAddress" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="EmployeesSupervised" />
+      <Property Name="JobDuties" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="CoursePlanning.Models.Address">
+    <Position X="8.5" Y="1" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAIAAAAAQACAAAAAAAAAAAAAASAAA=</HashCode>
+      <FileName>Models\DesignModelClasses.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Employee" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CoursePlanning.Models.JobDuty">
+    <Position X="2.75" Y="4.75" Width="3.25" />
+    <AssociationLine Name="Employees" Type="CoursePlanning.Models.Employee" FixedFromPoint="true">
+      <Path>
+        <Point X="5.375" Y="4.75" />
+        <Point X="5.375" Y="3.132" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-2.411" Y="0.32" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAAAAAAAAQACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\DesignModelClasses.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Employees" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
