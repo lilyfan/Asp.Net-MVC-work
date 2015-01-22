@@ -1,0 +1,63 @@
+﻿@model SchoolNotification.ViewModels.FacultyCreate
+
+@{
+    ViewBag.Title = "Faculty Create";
+}
+
+<h2>Faculty Create</h2>
+
+@if (ViewBag.errors != null) { <p>ViewBag.errors</p>}
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>FacultyCreate</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FirstName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FirstName)
+            @Html.ValidationMessageFor(model => model.FirstName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LastName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LastName)
+            @Html.ValidationMessageFor(model => model.LastName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FacultyId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FacultyId)
+            @Html.ValidationMessageFor(model => model.FacultyId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Courses)
+        </div>
+        <div class="editor-field">
+            @*Html.EditorFor(model => model.FacultyId)
+            @Html.ValidationMessageFor(model => model.FacultyId)*@
+            @Html.ListBox("courses")
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

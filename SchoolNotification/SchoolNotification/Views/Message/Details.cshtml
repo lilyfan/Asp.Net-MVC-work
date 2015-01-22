@@ -1,0 +1,63 @@
+﻿@model SchoolNotification.ViewModels.MessageFull
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Message Details</h2>
+
+<fieldset>
+    <legend>MessageFull</legend>
+    <table>
+        <tr>
+            <td class="display-label">
+                @Html.DisplayNameFor(model => model.CourseCode)
+            </td>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.CourseCode)
+            </td>
+        </tr>
+
+        <tr>
+            <td class="display-label">
+                @Html.DisplayNameFor(model => model.Date)
+            </td>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.Date)
+            </td>
+        </tr>
+
+        <tr>
+            <td class="display-label">
+                @Html.DisplayNameFor(model => model.Time)
+            </td>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.Time)
+            </td>
+        </tr>
+
+        <tr>
+            <td class="display-label">
+                @Html.DisplayNameFor(model => model.MsgContent)
+            </td>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.MsgContent)
+            </td>
+        </tr>
+    </table>
+
+</fieldset>
+@if ((ViewBag.facultyView == "Y") || (ViewBag.adminView == "Y"))
+{
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+        @*Html.ActionLink("Back to List", "Index")*@
+        @Html.ActionLink(linkText: "Back to Cancellation List", actionName: "Index", controllerName: "Cancellation")
+    </p>
+}
+else
+{
+    <p>
+        @Html.ActionLink("Back to List", "Index", "Cancellation")
+    </p>
+}

@@ -1,0 +1,76 @@
+﻿@model IEnumerable<SchoolNotification.ViewModels.FacultyBase>
+
+@{
+    ViewBag.Title = "Faculty Index";
+}
+
+<h2>Faculty Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table>
+
+@if (ViewBag.faclist != null)
+{
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th></th>
+        </tr>
+    foreach (var item in ViewBag.faclist)
+    {
+        <tr>
+            <td>
+                @item.FirstName
+            </td>
+            <td>
+                @item.LastName
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.UserId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.UserId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.UserId })
+            </td>
+        </tr>
+    }
+}
+else if (ViewBag.canlist != null)
+{
+        <tr>
+            <th>
+                Date
+            </th>
+            <th>
+                Course
+            </th>
+            <th></th>
+        </tr>
+    foreach (var item in ViewBag.canlist)
+    {
+        <tr>
+            <td>
+                @item.Date
+            </td>
+            <td>
+                @* Html.ListBox("courselist");*@
+                @item.Course;
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+}
+else {
+    <tr><td>No list item</td><td></td></tr>
+}
+
+</table>

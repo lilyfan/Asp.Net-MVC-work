@@ -1,0 +1,70 @@
+﻿@model SchoolNotification.ViewModels.CancellationFull
+
+@{
+    ViewBag.Title = "Cancellation Edit";
+}
+
+<h2>Cancellation Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>CancellationFull</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Date)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Date)
+            @Html.ValidationMessageFor(model => model.Date)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Message.Time)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Message.Time)
+            @Html.ValidationMessageFor(model => model.Message.Time)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Course.CourseCode)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Course.CourseCode)
+            @Html.ValidationMessageFor(model => model.Course.CourseCode)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Message.MsgContent)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Message.MsgContent)
+            @Html.ValidationMessageFor(model => model.Message.MsgContent)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Faculty.FacultyId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Faculty.FacultyId)
+            @Html.ValidationMessageFor(model => model.Faculty.FacultyId)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

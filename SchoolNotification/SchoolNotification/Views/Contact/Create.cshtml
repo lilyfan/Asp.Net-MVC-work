@@ -1,0 +1,38 @@
+﻿@model SchoolNotification.ViewModels.ContactCreate
+
+@{
+    ViewBag.Title = "Contact Create";
+}
+
+<h2>Contact Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>ContactCreate</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ContactInfo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ContactInfo)
+            @Html.ValidationMessageFor(model => model.ContactInfo)
+        </div>
+
+
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

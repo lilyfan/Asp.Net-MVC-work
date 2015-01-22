@@ -1,0 +1,30 @@
+﻿@model SchoolNotification.ViewModels.ContactFull
+
+@{
+    ViewBag.Title = "Contact Delete";
+}
+
+<h2>Contact Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>ContactFull</legend>
+    <table>
+        <tr>
+            <td class="display-label">
+                @Html.DisplayNameFor(model => model.ContactInfo)
+            </td>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.ContactInfo)
+            </td>
+        </tr>
+    </table>
+
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

@@ -1,0 +1,65 @@
+﻿@model SchoolNotification.ViewModels.StudentFull
+
+@{
+    ViewBag.Title = "Student Edit";
+}
+
+<h2>Student Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>StudentFull</legend>
+
+        @Html.HiddenFor(model => model.UserId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FirstName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FirstName)
+            @Html.ValidationMessageFor(model => model.FirstName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LastName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LastName)
+            @Html.ValidationMessageFor(model => model.LastName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.StudentId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.StudentId)
+            @Html.ValidationMessageFor(model => model.StudentId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Courses)
+        </div>
+        <div class="editor-field">
+            @Html.ListBox("courselist")
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+
+        <div>@*Html.ActionLink("Edit Contact", "Edit", "Contact", new { id = ViewBag.stdUserId})*@
+            <input type="button" title="Edit Contact" value="Edit Contact" onclick="location.href='@Url.Action("Create", "Contact" , new { id = ViewBag.userId })'" />
+        </div>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

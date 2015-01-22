@@ -1,0 +1,71 @@
+﻿@model SchoolNotification.ViewModels.StudentCreate
+
+@{
+    ViewBag.Title = "Student Create";
+}
+
+<h2>Student Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(false)
+
+    <fieldset>
+        <legend>StudentCreate</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FirstName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FirstName)
+            @Html.ValidationMessageFor(model => model.FirstName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LastName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LastName)
+            @Html.ValidationMessageFor(model => model.LastName)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.StudentId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.StudentId)
+            @Html.ValidationMessageFor(model => model.StudentId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Courses)
+        </div>
+        <div class="editor-field">
+            @Html.ListBox("courses")
+        </div>
+        <!--
+        <div>
+            <input type="button" title="Add Contact" value="AddContact" onclick="location.href='@*Url.Action("Create", "Contact", new { id = ViewBag.userId })*@'" />
+            @*Html.ActionLink("Add Contact", "Create", "Contact")*@
+        </div>
+            -->
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+        
+    </fieldset>
+}
+
+<div>
+    @if (ViewBag.adminView == "Y") 
+    {
+        @Html.ActionLink("Back to List", "Index", "Student") 
+    } else if(ViewBag.stdView == "Y") 
+    {
+        @Html.ActionLink("Back to List", "Index", "Contact")
+    }
+    
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

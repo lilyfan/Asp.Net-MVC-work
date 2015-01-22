@@ -1,0 +1,59 @@
+﻿@model SchoolNotification.ViewModels.StudentFull
+
+@{
+    ViewBag.Title = "Student Details";
+}
+
+<h2>Student Details</h2>
+
+<fieldset>
+    <legend>StudentFull</legend>
+    <table>
+        <tr>
+            <td class="display-label">
+                @Html.DisplayNameFor(model => model.FirstName)
+            </td>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.FirstName)
+            </td>
+        </tr>
+        <tr>
+            <td class="display-label">
+                @Html.DisplayNameFor(model => model.LastName)
+            </td>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.LastName)
+            </td>
+        </tr>
+        <tr>
+            <td class="display-label">
+                @Html.DisplayNameFor(model => model.StudentId)
+            </td>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.StudentId)
+            </td>
+        </tr>
+        <tr>
+            <td class="display-label">
+                @Html.DisplayNameFor(model => model.Contacts)
+            </td>
+            <td class="display-field">
+                @Html.ListBox("contactlist")
+            </td>
+        </tr>
+
+        <tr>
+            <td class="display-label">
+                @Html.DisplayNameFor(model => model.Courses)
+            </td>
+            <td class="display-field">
+                @Html.ListBox("courselist")
+            </td>
+        </tr>
+    </table>
+    
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.UserId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

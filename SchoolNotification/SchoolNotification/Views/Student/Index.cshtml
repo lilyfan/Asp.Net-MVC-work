@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "Student Index";
+}
+
+<h2>Student Index</h2>
+
+@if (ViewBag.adminView == "Y")
+{
+    <p>
+    @Html.ActionLink("Create New", "Create")
+    </p>
+    <table>
+        <tr>
+            <th>
+                First Name
+            </th>
+            <th>
+                Last Name
+            </th>
+            <th></th>
+        </tr>
+
+        @if (ViewBag.stdlist != null)
+        {
+            foreach (var item in ViewBag.stdlist)
+            {
+                <tr>
+                    <td>
+                        @item.FirstName
+                    </td>
+                    <td>
+                        @item.LastName
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.UserId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.UserId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.UserId }) |
+                        @Html.ActionLink(linkText: "Manage Contact", actionName: "Index", controllerName: "Contact", routeValues: new { id = item.UserId }, htmlAttributes: null)
+                    </td>
+                </tr>
+            }
+
+        }
+    </table>
+    
+
+}
+else if (ViewBag.stdView == "Y")
+{
+    <ol class="round">
+
+        <li class="one" style="height: 40px;">
+            @Html.ActionLink("View Course", "Index", "Course")
+        </li>
+
+        <li class="two" style="height: 40px;">
+            @Html.ActionLink("View Cancellations / Messages", "Index", "Cancellation")
+        </li>
+
+        <li class="three" style="height: 40px;">
+            @Html.ActionLink("Add/Modify Contact Info", "Index", "Contact")
+        </li>
+
+    </ol>
+}

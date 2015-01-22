@@ -1,0 +1,43 @@
+﻿@model SchoolNotification.ViewModels.AdminFull
+
+@{
+    ViewBag.Title = "AdminUser Details";
+}
+
+<h2>Admin User Details</h2>
+
+<fieldset>
+    <legend>AdminFull</legend>
+    <table>
+        <tr>
+            <td class="display-label">
+                @Html.DisplayNameFor(model => model.FirstName)
+            </td>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.FirstName)
+            </td>
+        </tr>
+
+        <tr>
+            <td class="display-label">
+                @Html.DisplayNameFor(model => model.LastName)
+            </td>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.LastName)
+            </td>
+        </tr>
+
+        <tr>
+            <td class="display-label">
+                @Html.DisplayNameFor(model => model.EmployeeId)
+            </td>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.EmployeeId)
+            </td>
+        </tr>
+    </table>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.UserId }) |
+    @Html.ActionLink("Back to List", "List")
+</p>

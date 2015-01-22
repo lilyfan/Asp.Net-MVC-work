@@ -1,0 +1,59 @@
+﻿@model SchoolNotification.ViewModels.FacultyFull
+
+@{
+    ViewBag.Title = "Faculty Edit";
+}
+
+<h2>Faculty Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>FacultyFull</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FirstName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FirstName)
+            @Html.ValidationMessageFor(model => model.FirstName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LastName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LastName)
+            @Html.ValidationMessageFor(model => model.LastName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FacultyId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FacultyId)
+            @Html.ValidationMessageFor(model => model.FacultyId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Courses)
+        </div>
+        <div class="editor-field">
+            @Html.ListBox("courselist")
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

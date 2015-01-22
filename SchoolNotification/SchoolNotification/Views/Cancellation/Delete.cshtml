@@ -1,0 +1,58 @@
+﻿@model SchoolNotification.ViewModels.CancellationFull
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Cancellation Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>CancellationFull</legend>
+
+    <table>
+        <tr>
+            <td class="display-label">
+                @Html.DisplayNameFor(model => model.Date)
+            </td>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.Date)
+            </td>
+        </tr>
+
+        <tr>
+            <td class="display-label">
+                @Html.DisplayNameFor(model => model.Message.Time)
+            </td>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.Message.Time)
+            </td>
+        </tr>
+
+        <tr>
+            <td class="display-label">
+                @Html.DisplayNameFor(model => model.Course.CourseCode)
+            </td>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.Course.CourseCode)
+            </td>
+        </tr>
+        <tr>
+            <td class="display-label">
+                @Html.DisplayNameFor(model => model.Faculty.FacultyId)
+            </td>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.Faculty.FacultyId)
+            </td>
+        </tr>
+
+    </table>
+
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

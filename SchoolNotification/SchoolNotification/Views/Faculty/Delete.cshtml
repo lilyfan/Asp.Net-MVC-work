@@ -1,0 +1,47 @@
+﻿@model SchoolNotification.ViewModels.FacultyFull
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Faculty Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>FacultyFull</legend>
+
+    <table>
+        <tr>
+            <td class="display-label">
+                @Html.DisplayNameFor(model => model.FirstName)
+            </td>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.FirstName)
+            </td>
+        </tr>
+        <tr>
+            <td class="display-label">
+                @Html.DisplayNameFor(model => model.LastName)
+            </td>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.LastName)
+            </td>
+        </tr>
+        <tr>
+            <td class="display-label">
+                @Html.DisplayNameFor(model => model.FacultyId)
+            </td>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.FacultyId)
+            </td>
+        </tr>
+
+    </table>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

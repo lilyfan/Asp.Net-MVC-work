@@ -1,0 +1,75 @@
+﻿@model SchoolNotification.ViewModels.CourseFull
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Course Details</h2>
+
+<fieldset>
+    <legend>CourseFull</legend>
+    <table>
+        <tr>
+            <td class="display-label">
+                @Html.DisplayNameFor(model => model.CourseName)
+            </td>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.CourseName)
+            </td>
+        </tr>
+
+        <tr>
+            <td class="display-label">
+                @Html.DisplayNameFor(model => model.CourseCode)
+            </td>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.CourseCode)
+            </td>
+        </tr>
+        <tr>
+            <td class="display-label">
+                @Html.DisplayNameFor(model => model.Room)
+            </td>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.Room)
+            </td>
+        </tr>
+
+        <tr>
+            <td class="display-label">
+                @Html.DisplayNameFor(model => model.Date)
+            </td>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.Date)
+            </td>
+        </tr>
+        <tr>
+            <td class="display-label">
+                @Html.DisplayNameFor(model => model.Time)
+            </td>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.Time)
+            </td>
+        </tr>
+        <tr>
+            <td class="display-label">
+                @Html.DisplayNameFor(model => model.Faculty.FacultyId)
+            </td>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.Faculty.FacultyId)
+            </td>
+        </tr>
+    </table>
+</fieldset>
+@if (ViewBag.adminView == "Y") { 
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id=ViewBag.id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
+else
+{
+    <p>
+        @Html.ActionLink("Back to List", "Index")
+    </p>   
+}

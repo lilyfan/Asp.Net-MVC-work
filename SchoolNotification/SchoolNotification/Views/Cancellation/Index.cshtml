@@ -1,0 +1,101 @@
+﻿@model IEnumerable<SchoolNotification.ViewModels.CancellationBase>
+
+@{
+    ViewBag.Title = "Cancellation Index";
+}
+
+<h2>Cancellation Index</h2>
+@if ((ViewBag.facultyView == "Y") || (ViewBag.adminView == "Y"))
+{
+    if (ViewBag.adminView == "Y")
+    { 
+        using (Html.BeginForm("Index", "Cancellation", FormMethod.Get)){    
+            <p> CourseCode: @Html.TextBox("SearchString") <br />   
+            <input type="submit" value="Filter" /></p> 
+        } 
+    }
+    
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Course)
+            </th>
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in ViewBag.canlist)
+        {
+            <tr>
+                <td>
+                    @item.Date
+                </td>
+                <td>
+                    @item.Course.CourseCode
+                </td>
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }) |
+                    @*Html.ActionLink("View Messages", "Index", "Message")*@
+                    @Html.ActionLink(linkText: "View Messages", actionName: "Details", controllerName: "Message", routeValues: new { id = item.Id }, htmlAttributes: null)
+                </td>
+            </tr>
+        }
+    </table>
+}
+else if (ViewBag.studentView == "Y")
+{
+    <table>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Course)
+            </th>
+
+            <th></th>
+        </tr>
+        @if (ViewBag.viewcan == true)
+        {
+            foreach (var item in ViewBag.canlist)
+            {
+            <tr>
+                <td>
+                    @item.Date
+                </td>
+                <td>
+                    @item.Course.CourseCode
+                </td>
+
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("View Messages", "Index", "Message")
+                </td>
+            </tr>
+            }
+        }
+        else
+        {
+            <tr><td>No Cancellation.</td><td></td><td></td></tr>
+        }
+    </table>
+}
+else
+{
+    <table><tr><td>You are not authorized to access cancellations.</td><td></td></tr></table>
+}
+
+
+
+
+
+

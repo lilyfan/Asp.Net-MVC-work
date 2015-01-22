@@ -1,0 +1,38 @@
+﻿@model SchoolNotification.ViewModels.ContactFull
+
+@{
+    ViewBag.Title = "Contact Edit";
+}
+
+<h2>Contact Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>ContactFull</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ContactInfo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ContactInfo)
+            @Html.ValidationMessageFor(model => model.ContactInfo)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index", new { id = ViewBag.stdUserId })
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

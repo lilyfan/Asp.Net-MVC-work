@@ -1,0 +1,50 @@
+﻿@model SchoolNotification.ViewModels.FacultyFull
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Faculty Details</h2>
+
+<fieldset>
+    <legend>FacultyFull</legend>
+    <table>
+        <tr>
+            <td class="display-label">
+                @Html.DisplayNameFor(model => model.FacultyId)
+            </td>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.FacultyId)
+            </td>
+        </tr>
+        <tr>
+            <td class="display-label">
+                @Html.DisplayNameFor(model => model.FirstName)
+            </td>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.FirstName)
+            </td>
+        </tr>
+        <tr>
+            <td class="display-label">
+                @Html.DisplayNameFor(model => model.LastName)
+            </td>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.LastName)
+            </td>
+        </tr>
+        <tr>
+            <td class="display-label">
+                @Html.DisplayNameFor(model => model.Courses)
+            </td>
+            <td class="display-field">
+                @*Html.DisplayFor(model => model.LastName)*@
+                @Html.ListBox("courselist")
+            </td>
+        </tr>
+    </table>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.UserId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

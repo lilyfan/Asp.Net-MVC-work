@@ -1,0 +1,37 @@
+﻿@model IEnumerable<SchoolNotification.ViewModels.ContactBase>
+
+@{
+    ViewBag.Title = "Contact Index";
+}
+
+<h2>Contact Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", new { id = ViewBag.stdUserId })
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactInfo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in ViewBag.contactlist)
+{
+    <tr>
+        <td>
+            @item.ContactInfo
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id, userId = ViewBag.stdUserId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id, userId = ViewBag.stdUserId })
+        </td>
+    </tr>
+}
+
+</table>
+<br />
+<div>
+    @Html.ActionLink("Back to List", "Index", "Student")
+</div>

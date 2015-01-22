@@ -1,0 +1,25 @@
+﻿@model SchoolNotification.Models.Admin
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Admin</h2>
+<ol class="round">
+    <li class="one" style="height: 40px;">
+        @Html.ActionLink("Manage Faculty", "Index", "Faculty")
+    </li>
+
+    <li class="two" style="height: 40px;">
+        @Html.ActionLink("Manage Course", "Index", "Course")
+    </li>
+    <li class="three" style="height: 40px;">
+        @Html.ActionLink("Manage Student", "Index", "Student")
+    </li>
+    <li class="four" style="height: 40px;">
+        @Html.ActionLink("Manage Cancellations / Messages", "Index", "Cancellation")
+    </li>
+    <li class="five" style="height: 40px;">
+        @Html.ActionLink("Manage Admin", "List", "Admin")
+    </li>
+</ol>

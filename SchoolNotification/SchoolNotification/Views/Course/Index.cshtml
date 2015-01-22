@@ -1,0 +1,77 @@
+﻿@model IEnumerable<SchoolNotification.ViewModels.CourseBase>
+
+@{
+    ViewBag.Title = "Course Index";
+}
+
+<h2>Course Index</h2>
+
+@if (ViewBag.adminView == "Y") { 
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+}
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseCode)
+        </th>
+        <th></th>
+    </tr>
+
+
+    @if (ViewBag.stdView == "Y")
+    {
+        if (ViewBag.courselistforstd != null)
+        { 
+            foreach (var item in ViewBag.courselistforstd)
+            {
+                <tr>
+                    <td>
+                        @item.CourseName
+                    </td>
+                    <td>
+                        @item.CourseCode
+                    </td>
+                    <td>
+                        @Html.ActionLink("Details", "Details", new { id=item.Id }) 
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr><td>No listed items</td></tr>
+        }
+    }
+     else
+     {
+         if (ViewBag.courselist != null) { 
+            foreach (var item in ViewBag.courselist)
+            {
+                <tr>
+                    <td>
+                        @item.CourseName
+                    </td>
+                    <td>
+                        @item.CourseCode
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                        @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+                    </td>
+                </tr>
+            }
+         }
+         else
+         {
+             <tr><td>Your are not authorized to view course list</td></tr>
+         }
+     }
+
+
+</table>
